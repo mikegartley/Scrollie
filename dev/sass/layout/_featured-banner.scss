@@ -1,0 +1,82 @@
+.featured-banner{
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    @include transitions(all, .5s, ease-in-out);
+
+    @include custom-media($breakpoint-sm-tablet - 1) {
+        padding: 0;
+        border: 1px solid $medium-grey;
+        height: 90px;
+    }
+    
+    width: 100%;
+    max-width: 728px;
+    
+    overflow: hidden;
+    position: relative;
+    .img-holder{
+
+        @include stack();
+        @include custom-media($breakpoint-sm-tablet - 1) {
+            @include span(1/2);
+        }
+        position: relative;
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .brand{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: .25em .5em;
+            margin: 0;
+            background: $primary-color;
+            color: #fff;
+            font-size: .7rem;
+        }
+    }
+    .content{
+        @include stack();
+        @include custom-media($breakpoint-sm-tablet - 1) {
+            @include span(1/2);
+            padding: .5rem 1rem;
+        }
+        padding: .5rem 0;
+
+        .ad-headline{
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+            font-weight: $font-weight-bold;
+
+        }
+        
+    }
+
+    .sponsored{
+        position: absolute;
+        bottom: 0;
+        right: 1rem;
+        @include custom-media($breakpoint-sm-tablet - 1) {
+            right: 0;
+        }
+        display: block;
+        font-size: .6rem;
+        padding: .2rem;
+        &:before {
+            content: '➤';
+            display: inline-block;
+            position: relative;
+            padding: 0 .25rem;
+            color: $medium-grey;
+            font-size: .6rem;
+            font-weight: $font-weight-bold;
+        }
+   
+    }
+
+
+
+}

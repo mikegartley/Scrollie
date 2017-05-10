@@ -1,0 +1,8 @@
+footer{
+        border-top: 2px solid $light-grey;
+
+    div{
+        @include center(1000px, $pad: 1rem);
+
+    }
+}

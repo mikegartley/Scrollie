@@ -1,0 +1,88 @@
+/* Icon 1 */
+.menu {
+    
+    width: 50px;
+    height: 55px;
+    position: relative;
+    float: left;
+    margin: 1.75em 1.5em .8em;
+    @include rotate(0);
+    @include transitions(all, .5s, ease-in-out);
+    cursor: pointer;
+
+    & span {
+        display: block;
+        position: absolute;
+        height: 6px;
+        width: 50%;
+        background: #fff;
+        opacity: 1;
+        @include rotate(0);
+        @include transitions(all, .5s, ease-in-out);
+
+        &:nth-child(even) {
+            left: 50%;
+            border-radius: 0 9px 9px 0;
+        }
+
+        &:nth-child(odd) {
+            left: 0px;
+            border-radius: 9px 0 0 9px;
+        }
+    }
+    @include custom-media($breakpoint-lr-mobile - 1) {
+        display: none;
+    }
+}
+
+
+
+.menu span:nth-child(1), .menu span:nth-child(2) {
+    top: 0px;
+}
+
+.menu span:nth-child(3), .menu span:nth-child(4) {
+    top: 15px;
+}
+
+.menu span:nth-child(5), .menu span:nth-child(6) {
+    top: 30px;
+}
+
+.menu.open span:nth-child(1), .menu.open span:nth-child(6) {
+    @include rotate(45);
+}
+
+.menu.open span:nth-child(2), .menu.open span:nth-child(5) {
+    @include rotate(-45);
+}
+
+.menu.open span:nth-child(1) {
+    left: 1px;
+    top: 3px;
+}
+
+.menu.open span:nth-child(2) {
+    left: calc(50% - 5px);
+    top: 3px;
+}
+
+.menu.open span:nth-child(3) {
+    left: -50%;
+    opacity: 0;
+}
+
+.menu.open span:nth-child(4) {
+    left: 100%;
+    opacity: 0;
+}
+
+.menu.open span:nth-child(5) {
+    left: 1px;
+    top: 14px;
+}
+
+.menu.open span:nth-child(6) {
+    left: calc(50% - 5px);
+    top: 14px;
+}

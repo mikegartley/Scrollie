@@ -1,0 +1,29 @@
+﻿header{
+    background: $primary-color;
+    @include clearfix();
+}
+
+main{
+    @include center(1000px, $pad: 1rem);
+}
+
+article{
+        @include stack();
+
+        .logo{
+            margin: 1rem auto 0;
+            max-width: 200px;
+            text-align: center;
+            display: block;
+        }
+
+        img{
+            width: 100%;
+
+            &.sm-img{
+                max-width: 350px;
+                float: left;
+                margin: .5rem 1rem .5rem 0;
+            }
+        }
+}

@@ -1,0 +1,47 @@
+//colors
+$primary-color: #3a556f;
+$secondary-color: #022030;
+$link-color: #568ac0;
+
+//orange
+$orange-corp: #f26722;
+
+//blue
+$medium-blue: #04346B;
+$light-blue: #568ac0;
+$cruise-blue: #23b5d3;
+
+//yellow
+$yellow: #e6b85c;
+$dark-yellow:#b88a30;
+$medium-yelow: #c79840;
+
+//greys
+$dark-grey: #515151;
+$medium-grey: #D0D0D0;
+$light-grey: #e1e3e4;
+$lighter-grey: #FDFDFD;
+$footer: #FFFFFF;
+
+$body-width: 100%;
+$body-bg-color: #f5f5f5;
+$content-bg-color: #ffffff;
+$body-bg-alt: darken($body-bg-color, 3%);
+
+$image-base: "/img/";
+
+// breakpoints
+$breakpoint-sm-mobile: 320px;
+$breakpoint-md-mobile: 400px;
+$breakpoint-lr-mobile: 570px;
+$breakpoint-sm-tablet: 650px;
+$breakpoint-md-tablet: 770px;
+$breakpoint-lr-tablet: 1025px;
+$breakpoint-sm-laptop: 1282px;
+$breakpoint-lr-laptop: 1438px;
+$breakpoint-xl: 1440px;
+
+*{
+    box-sizing: border-box;
+}
+

@@ -1,0 +1,138 @@
+/*
+
+*/
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Serif:400,700,700i');
+
+$font-family-base: 'PT Sans', sans-serif;
+$font-family-PTSerif: 'PT Sans', sans-serif;
+/*'PT Serif', serif;*/
+
+
+
+$font-size-base: 16px;
+
+$line-height-base: 1.5;
+
+$font-color-base: #222;
+$font-color-base-light: #ffffff;
+
+$font-weight-thin: 300;
+$font-weight-base: 400;
+$font-weight-light-bold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+
+
+$font-size-large: em(18);
+$font-size-small: em(12);
+$font-size-h1: 2rem;
+$font-size-h2: 1.882rem;
+$font-size-h3: 1.4rem;
+$font-size-h4: em(22);
+$font-size-h5: em(26);
+$font-size-h6: em(18);
+
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: $font-family-base;
+    font-weight: $font-weight-base;
+    font-size: $font-size-base;
+    color: $font-color-base;
+    line-height: $line-height-base;
+    letter-spacing: .5px;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background: $body-bg-color;
+
+    &.active-menu {
+        overflow: hidden;
+        max-height: 100%;
+    }
+}
+
+
+hr {
+    border-top: 4px double $light-grey;
+    text-align: center;
+
+    &:after {
+        content: '\f155';
+        font-family: FontAwesome;
+        display: inline-block;
+        position: relative;
+        top: -15px;
+        padding: 0 10px;
+        background: $body-bg-color;
+        color: $light-grey;
+        font-size: 18px;
+    }
+
+    &.white {
+        padding: 0 2em;
+
+        &:after {
+            background: $content-bg-color;
+        }
+    }
+}
+
+
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        color: darken($link-color, 10%);
+        @include transitions(color, 0.2s, linear);
+        text-decoration: underline;
+    }
+}
+
+h1 {
+     font-size: $font-size-h1;
+}
+
+h2 {
+    font-size: $font-size-h2;
+}
+
+h3 {
+    font-size: $font-size-h3;
+    color: $font-color-base;
+}
+
+h4 {
+    font-size: $font-size-h4;
+    font-weight: $font-weight-base;
+}
+
+h5 {
+    font-size: $font-size-h5;
+    color: $font-color-base;
+    font-weight: $font-weight-light-bold;
+}
+
+h6 {
+    font-size: $font-size-h6;
+    color: $font-color-base;
+    font-weight: $font-weight-thin;
+}
+
+p {
+    line-height: $line-height-base;
+    font-size: 1rem;
+    font-family: $font-family-base;
+}
+
+.error{
+    color: #ff0000;
+    font-weight: $font-weight-bold;
+
+}

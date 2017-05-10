@@ -1,0 +1,224 @@
+@mixin text-shadows($string: 0 2px 0 rgba(255, 255, 255, 0.25)) {
+    text-shadow: $string;
+}
+
+@mixin clearFix {
+    *zoom: 1;
+
+    &:before {
+        content: ' ';
+        display: table;
+    }
+
+    &:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin respond-to($media) {
+    @if $media == sm-phone {
+        @media only screen and (max-width: $breakpoint-sm-mobile) {
+            @content;
+        }
+    }
+    @else if $media == md-phone {
+        @media only screen and (min-width: $breakpoint-sm-mobile + 1) and (max-width: $breakpoint-md-mobile - 1) {
+            @content;
+        }
+    }
+    @else if $media == lr-phone {
+        @media only screen and (min-width: $breakpoint-md-mobile + 1) and (max-width: $breakpoint-lr-mobile - 1) {
+            @content;
+        }
+    }
+    @else if $media == sm-tablets {
+        @media only screen and (min-width: $breakpoint-lr-mobile + 1) and (max-width: $breakpoint-sm-tablet - 1) {
+            @content;
+        }
+    }
+    @else if $media == md-tablets {
+        @media only screen and (min-width: $breakpoint-sm-tablet + 1) and (max-width: $breakpoint-md-tablet - 1) {
+            @content;
+        }
+    }
+    @else if $media == lr-tablets {
+        @media only screen and (min-width: $breakpoint-md-tablet + 1) and (max-width: $breakpoint-lr-tablet - 1) {
+            @content;
+        }
+    }
+    @else if $media == sm-laptop {
+        @media only screen and (min-width: $breakpoint-lr-tablet + 1) and (max-width: $breakpoint-sm-laptop - 1) {
+            @content;
+        }
+    }
+    @else if $media == lr-laptop {
+        @media only screen and (min-width: $breakpoint-sm-laptop + 1) and (max-width: $breakpoint-lr-laptop - 1) {
+            @content;
+        }
+    }
+    @else if $media == xl-monitor {
+        @media only screen and (min-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+@mixin custom-media($breakpoint) {
+    @media only screen and (min-width: $breakpoint){
+        @content;
+    }
+}
+
+//Transitioning / Animation
+@mixin transitions($prop: all, $time: 1s, $ease: linear) {
+    -webkit-transition: $prop $time $ease;
+    -moz-transition: $prop $time $ease;
+    -o-transition: $prop $time $ease;
+    -ms-transition: $prop $time $ease;
+    transition: $prop $time $ease;
+}
+
+@mixin filters($type){
+  -webkit-filter: $type;
+  -moz-filter: $type;
+  -o-filter: $type;
+  -ms-filter: $type;
+  filter: $type;
+
+}
+
+@mixin border-radius($radius: 5px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin border-radius-custom($topleft: 5px, $topright: 5px, $bottomleft: 5px, $bottomright: 5px) {
+    -webkit-border-radius: $topleft $topright $bottomright $bottomleft;
+    -moz-border-radius: $topleft $topright $bottomright $bottomleft;
+    -ms-border-radius: $topleft $topright $bottomright $bottomleft;
+    -o-border-radius: $topleft $topright $bottomright $bottomleft;
+    border-radius: $topleft $topright $bottomright $bottomleft;
+}
+
+@mixin drop-shadow($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+    -webkit-box-shadow: $x $y $blur $spread rgba(0, 0, 0, $alpha);
+    -moz-box-shadow: $x $y $blur $spread rgba(0, 0, 0, $alpha);
+    box-shadow: $x $y $blur $spread rgba(0, 0, 0, $alpha);
+}
+// generic transform
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+    transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+	 @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+     @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+     @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+    transform-origin: $origin;
+}
+
+@mixin linearGradient($top, $bottom) {
+    background: $top;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $top), color-stop(100%, $bottom));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $top 0%, $bottom 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $top 0%, $bottom 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $top 0%, $bottom 100%);
+    /* IE10+ */
+    background: linear-gradient(to bottom, $top 0%, $bottom 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
+    /* IE6-9 */
+}
+
+@mixin gradient-radial($inner-color: #555, $outer-color: #333, $img: "bg-texture.png") {
+  background: -webkit-radial-gradient(circle, $inner-color, $outer-color), url("#{$image-base}/#{$img}") top center;
+  background: radial-gradient(circle, $inner-color, $outer-color), url("#{$image-base}/#{$img}") top center;
+}
+
+@function get-ems($pixel_number, $base_number) {
+    @return $pixel_number / $base_number;
+}
+
+@function themeColors($themeColor, $tone: "primary") {
+    @return map-get(map-get($themeColors, $themeColor), $tone);
+}
+
+@function em($pixels, $context: $font-size-base) {
+    @if unitless($pixels) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if unitless($context) {
+        $context: $context * 1px;
+    }
+
+    @return $pixels / $context * 1em;
+}
+
+@mixin rem($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin x-appearance ($value) {
+	-webkit-appearance: $value;
+	   -moz-appearance: $value;
+	        
+}
+
+@mixin animation ($delay, $duration, $animation) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+    -o-animation-delay: $delay;
+    -o-animation-duration: $duration;
+    -o-animation-name: $animation;
+    -o-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+}
+
+@mixin animationDelay( $steps: 1, $startDelay: $animation__startDelay, $offset: $animation__delayOffset) {
+    -webkit-animation-delay: $startDelay + ($offset * $steps);
+    animation-delay: $startDelay + ($offset * $steps);
+}
